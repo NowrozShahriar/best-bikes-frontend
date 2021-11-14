@@ -1,6 +1,6 @@
 # Best Bikes
 
-Best Bikes is an online specialty retailer of bicycles.
+Best Bikes is an online specialty retailer of bicycles. Visit site [Best Bikes](https://github.com/facebook/create-react-app).
 
 - Best Bikes has a wide selection of mountain, road, triathlon, and hybrid bicycles at all price levels.
 
@@ -12,5 +12,5 @@ Best Bikes is an online specialty retailer of bicycles.
 
 - Our commitment to you does not end after your purchase. As we work directly with manufacturers, we can ensure fast warranty support, local spares and knowledgeable after sales service. You can rest assured as we also have a nationwide servicing network.
 
-Visit site [Best Bikes](https://github.com/facebook/create-react-app).
+
 
