@@ -1,0 +1,41 @@
+.banner {
+    background-size: 100%;
+    background-image: url('https://www.bikesonline.com/assets/images/d567-hero.jpg');
+    background-repeat: no-repeat;
+    height: 90vh;
+    color: white;
+}
+
+.banner h1 {
+    padding: 0 10px;
+    font-weight: normal;
+}
+
+.banner div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(56, 56, 56, 0.384);
+}
+
+a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 480px) {
+    .banner {
+        height: 26vh;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .banner {
+        height: 40vh;
+    }
+}
