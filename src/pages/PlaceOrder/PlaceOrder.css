@@ -15,8 +15,8 @@
     margin: 20px 0 0 0;
 }
 
-.purchase h1, h3 {
-    margin: 10px 0 0 0;
+.purchase h2 {
+    font-size: 35px;
 }
 
 .purchase-button {

@@ -12,7 +12,30 @@ function PlaceOrder() {
 
     const onSubmit = data => {
         let purchase = window.confirm("Confirm Purchase?");
-        console.log(purchase);
+        if (purchase) {
+            const orderInfo = {
+                productName: id,
+                userName: data.userName, 
+                userEmail: data.userEmail, 
+                address: data.address, 
+                phone: data.phone,
+                status: 'pending'
+            }
+            console.log(orderInfo);
+            fetch('http://localhost:5000/orders', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(orderInfo)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    setPlaced(true);
+                }
+            })
+        }
         reset();
     }
 
@@ -25,7 +48,7 @@ function PlaceOrder() {
                 <><p></p>
                 <input placeholder="Your Name" {...register("userName", {required: true})} />
                 <input placeholder="Your Email" defaultValue={user.email} {...register("userEmail", {required: true})} />
-                <textarea placeholder="Address" {...register("address")} />
+                <textarea placeholder="Address" {...register("address", {required: true})} />
                 <input type="number" placeholder="phone number" {...register("phone", {required: true})} />
                 <input className="purchase-button" type="submit" value="Purchase" /></>}
             </form>
