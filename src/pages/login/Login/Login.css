@@ -15,17 +15,9 @@
     padding: 2px 4px;
 }
 
-.login p {
-    margin: 0 0 3px 0;
-}
-
-.login h1, h3 {
+.login h1 {
     width: 280px;
     margin: 10px auto;
-}
-
-.login h2 {
-    font-weight: 400;
 }
 
 .login-button {

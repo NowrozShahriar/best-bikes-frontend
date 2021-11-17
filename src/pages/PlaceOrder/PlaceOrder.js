@@ -1,3 +1,4 @@
+import { Alert } from "@mui/material";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
@@ -43,8 +44,8 @@ function PlaceOrder() {
         <div className="purchase">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <p>Purchase: {id}</p>
-                {placed ? 
-                <><h2>Order placed successfully.</h2><p>Go to <strong>My Orders</strong> to see all of your orders.</p></> : 
+                {!placed ? 
+                <><Alert sx={{marginTop: "20px"}} severity="success">Order placed successfully.</Alert><p>Go to <strong>My Orders</strong> to see all of your orders.</p></> : 
                 <><p></p>
                 <input placeholder="Your Name" {...register("userName", {required: true})} />
                 <input placeholder="Your Email" defaultValue={user.email} {...register("userEmail", {required: true})} />
