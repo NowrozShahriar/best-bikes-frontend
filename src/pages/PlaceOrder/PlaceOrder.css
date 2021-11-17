@@ -1,0 +1,28 @@
+.purchase form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+    height: 81vh;
+}
+
+.purchase input, textarea {
+    margin-bottom: 10px;
+}
+
+.purchase p {
+    margin: 20px 0 0 0;
+}
+
+.purchase h1, h3 {
+    margin: 10px 0 0 0;
+}
+
+.purchase-button {
+    color: white;
+    border: none;
+    line-height: 27px;
+    border-radius: 4px;
+    background-color: #233142;
+}

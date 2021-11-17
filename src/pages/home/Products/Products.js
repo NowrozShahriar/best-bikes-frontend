@@ -20,7 +20,7 @@ const products = [
     {
         "name": "Polygon Relic 24",
         "img": "https://www.bikesonline.com/assets/thumbL/AIAPX24RLC12G1.jpg?20210317031421&tr=w-250,h-250",
-        "desc": "Kids love the look of the Relic 24\", with its front disc brakes, shimano gears and front suspension. The bike performs as good as it looks too, with quality components throughout - from the threaded headset (the same type that is used on all \"proper\" bikes), to the alloy brake levers, rather than plastic, as found on department store bikes.",
+        "desc": "Kids love the look of the Relic 24, with its front disc brakes, shimano gears and front suspension. The bike performs as good as it looks too, with quality components throughout - from the threaded headset (the same type that is used on all proper bikes), to the alloy brake levers, rather than plastic, as found on department store bikes.",
         "price": "499"
     },
     {
