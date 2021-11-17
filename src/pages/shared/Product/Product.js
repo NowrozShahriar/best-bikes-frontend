@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Link } from "react-router-dom";
 
 function Product(props) {
     const {name, img, desc, price} = props.product;
@@ -32,9 +33,11 @@ function Product(props) {
                     <Typography sx={{fontWeight: 'bold', color: '#3c4758'}} >
                         {'$'+price}
                     </Typography>
-                    <Button variant="contained" size="small" sx={{backgroundColor: '#233142'}}>
+                    <Link to={`/place-order/${name}`}>
+                        <Button variant="contained" size="small" sx={{backgroundColor: '#233142'}}>
                         Purchase
-                    </Button>
+                        </Button>
+                    </Link>
                 </CardActions>
             </Card>
         </Grid>

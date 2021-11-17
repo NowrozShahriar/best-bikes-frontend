@@ -1,0 +1,45 @@
+.register {
+    height: 77vh;
+    margin-top: 40px;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    margin: 0 auto;
+}
+
+.register input {
+    margin-bottom: 10px;
+    padding: 2px 4px;
+}
+
+.register p {
+    margin: 0 0 3px 0;
+}
+
+.register h1, h3 {
+    width: 280px;
+    margin: 10px auto;
+}
+
+.register h2 {
+    font-weight: 400;
+}
+
+.register-button {
+    color: white;
+    border: none;
+    line-height: 27px;
+    border-radius: 4px;
+    background-color: #233142;
+}
+
+.login-toggle {
+    background-color: white;
+    border: none;
+    color: #233142;
+    font-weight: bold;
+    text-decoration: underline;
+}

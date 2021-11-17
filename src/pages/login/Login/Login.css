@@ -1,0 +1,45 @@
+.login {
+    height: 77vh;
+    margin-top: 40px;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    margin: 0 auto;
+}
+
+.login input {
+    margin-bottom: 10px;
+    padding: 2px 4px;
+}
+
+.login p {
+    margin: 0 0 3px 0;
+}
+
+.login h1, h3 {
+    width: 280px;
+    margin: 10px auto;
+}
+
+.login h2 {
+    font-weight: 400;
+}
+
+.login-button {
+    color: white;
+    border: none;
+    line-height: 27px;
+    border-radius: 4px;
+    background-color: #233142;
+}
+
+.login-toggle {
+    background-color: white;
+    border: none;
+    color: #233142;
+    font-weight: bold;
+    text-decoration: underline;
+}
