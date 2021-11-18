@@ -1,13 +1,14 @@
+import { Container } from "@mui/material";
 import React from "react";
 import Review from "../Review/Review";
 
 function Reviews() {
     return (
-        <div>
-            <h1>Reviews</h1>
+        <Container>
+            <h1 style={{color: "#32373c", fontWeight: "normal"}}>Reviews</h1>
             <Review></Review>
             <Review></Review>
-        </div>
+        </Container>
     );
 };
 

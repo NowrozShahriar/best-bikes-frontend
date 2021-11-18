@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useAuth from "../../../hooks/useAuth";
+import useAuth from "../../../../hooks/useAuth";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -22,7 +22,7 @@ function MyOrders() {
 
     return (
         <div>
-            <h2>My Orders: {orders.length}</h2>
+            <h2>My Orders</h2>
             <TableContainer component={Paper} sx={{}}>
                 <Table aria-label="Manage Orders">
                     <TableHead>

@@ -1,5 +1,4 @@
 // import react from "react";
-// import './Header.css';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -32,10 +31,10 @@ function Header() {
                     </Typography>
                     {
                         user?.email ?
-                        <Link to="/dashboard">
+                        <Link to="/dashboard" style={{color: "white"}}>
                             <Button color="inherit">Dashboard</Button>
                         </Link> : 
-                        <Link to="/login">
+                        <Link to="/login" style={{color: "white"}}>
                             <Button color="inherit">LogIn</Button>
                         </Link> 
                     }

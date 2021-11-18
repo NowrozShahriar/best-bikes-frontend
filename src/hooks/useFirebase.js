@@ -13,9 +13,11 @@ function useFirebase() {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            history.replace('/');
+            // Save user in Database
+            saveUser(email)
             // const user = userCredential.user;
             // console.log('userCredential:', user);
+            history.replace('/');
           })
           .catch((error) => {
             // const errorCode = error.code;
@@ -62,6 +64,17 @@ function useFirebase() {
             console.log(error);
           })
           .finally(() => setIsLoading(false));
+    }
+
+    const saveUser = (email) => {
+        const user = {email};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
     }
 
     return {

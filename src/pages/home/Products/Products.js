@@ -16,7 +16,7 @@ function Products() {
     return (
         <Box sx={{ flexGrow: 1, margin: "30px 0" }}>
             <Container align="center">
-                <Typography variant="h4" sx={{color: "#32373c", margin: "10px"}} >Our Products</Typography>
+                <Typography variant="h4" sx={{color: "#32373c", margin: "10px"}} >Our Best Seller Products</Typography>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {products.slice(0, 6).map(product => <Product
                     key={product.name}

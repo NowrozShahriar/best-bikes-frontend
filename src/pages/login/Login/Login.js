@@ -1,26 +1,22 @@
 import { LinearProgress } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import "./Login.css"
 
 function Login() {
-    const [loginData, setLoginData] = useState({});
     const { register, handleSubmit} = useForm();
-    const { user, loginUser, isLoading } = useAuth();
+    const { loginUser, isLoading } = useAuth();
     const location = useLocation();
     const history = useHistory();
 
     const onSubmit = data => {
-        const newLoginData = {
+        const loginData = {
             email: data.userEmail,
             password: data.password
         }
-        setLoginData(newLoginData);
         loginUser(loginData.email, loginData.password, location, history);
-        user?.email ? alert('Successfully logged in.') :
-        console.log('please try again');
     }
     return (
         <div className="login">
