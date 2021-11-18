@@ -5,18 +5,18 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+// import IconButton from '@mui/material/IconButton';
+// import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 function Header() {
-    const {user, logOut} = useAuth();
+    const {user} = useAuth();
     return ( 
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" style={{backgroundColor: 'rgb(17, 30, 46, 0.980)'}}>
                 <Toolbar>
-                    <IconButton
+                    {/* <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
@@ -24,7 +24,7 @@ function Header() {
                         sx={{ mr: 2 }}
                     >
                         <MenuIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         <Link to="/" style={{textDecoration: "none", color: "white"}}>
                             Best Bikes
@@ -32,7 +32,9 @@ function Header() {
                     </Typography>
                     {
                         user?.email ?
-                        <Button onClick={logOut} color="inherit">LogOut</Button> : 
+                        <Link to="/dashboard">
+                            <Button color="inherit">Dashboard</Button>
+                        </Link> : 
                         <Link to="/login">
                             <Button color="inherit">LogIn</Button>
                         </Link> 

@@ -44,7 +44,7 @@ function PlaceOrder() {
         <div className="purchase">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <p>Purchase: {id}</p>
-                {!placed ? 
+                {placed ? 
                 <><Alert sx={{marginTop: "20px"}} severity="success">Order placed successfully.</Alert><p>Go to <strong>My Orders</strong> to see all of your orders.</p></> : 
                 <><p></p>
                 <input placeholder="Your Name" {...register("userName", {required: true})} />
