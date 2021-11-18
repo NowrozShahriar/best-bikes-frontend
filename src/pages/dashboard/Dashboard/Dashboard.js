@@ -14,6 +14,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import MyOrders from '../MyOrders/MyOrders';
+import { Grid } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -116,9 +118,11 @@ function Dashboard(props) {
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }, height: "79vh" }}
       >
-        <Toolbar />
+        {/* <Toolbar /> */}
         <Typography paragraph>
-          contents
+          <Grid  sx={{}}>
+            <MyOrders></MyOrders>
+          </Grid>
         </Typography>
       </Box>
     </Box>
