@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 function Header() {
-    const {user} = useAuth();
+    const {user, logOut} = useAuth();
     return ( 
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" style={{backgroundColor: 'rgb(17, 30, 46, 0.980)'}}>
@@ -31,11 +31,16 @@ function Header() {
                     </Typography>
                     {
                         user?.email ?
-                        <Link to="/dashboard" style={{color: "white"}}>
+                        <><Link to="/dashboard" style={{color: "white"}}>
                             <Button color="inherit">Dashboard</Button>
-                        </Link> : 
+                        </Link>
+                        <Button onClick={logOut} color="inherit">
+                            LogOut
+                        </Button></>: 
                         <Link to="/login" style={{color: "white"}}>
-                            <Button color="inherit">LogIn</Button>
+                            <Button color="inherit">
+                                LogIn
+                            </Button>
                         </Link> 
                     }
                 </Toolbar>
