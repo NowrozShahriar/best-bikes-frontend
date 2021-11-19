@@ -20,6 +20,7 @@ function AddProduct() {
     return (
         <div>
             <h2>Add Product</h2>
+            {success && <Alert sx={{marginTop: "20px"}} severity="success">Product added successfully.</Alert>}
             <form onSubmit={handleSubmit(onSubmit)} style={{display: "flex", flexDirection: "column"}}>
                 <input placeholder="Product Name" {...register("name", { required: true })} />
                 <input placeholder="Product Image (url)"  {...register("img")} />
@@ -27,7 +28,6 @@ function AddProduct() {
                 <textarea placeholder="Product Description" {...register("desc", { required: true })} />
                 <input type="submit" value="Add Product" />
             </form>
-            {success && <Alert sx={{marginTop: "20px"}} severity="success">Product added successfully.</Alert>}
         </div>
     );
 };
