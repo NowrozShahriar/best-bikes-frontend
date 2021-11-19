@@ -13,7 +13,8 @@ import { Alert } from "@mui/material";
 function AllOrders() {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
-    const [success, setSuccess] = useState(false);
+    const [updated, setUpdated] = useState(false);
+    const [removed, setRemoved] = useState(false);
     
     useEffect(() => {
         fetch('http://localhost:5000/orders')
@@ -21,13 +22,25 @@ function AllOrders() {
         .then(data => setOrders(data))
     }, [user.email])
 
+    const handleShipping = (_id) => {
+        const condition = window.confirm('Update product status to "Shipped"?');
+        if (condition) {
+            axios.put('http://localhost:5000/orders', {_id})
+            .then(res => {
+                if(res.data.modifiedCount) {
+                    setUpdated(true);
+                }
+            })
+        }
+    }
+
     const handleRemove = (_id) => {
         const condition = window.confirm('Cancel an order?');
         if (condition) {
             axios.delete('http://localhost:5000/orders', {data: {id: _id}})
-            .then((res)=> {
+            .then(res => {
                 if(res.data.deletedCount) {
-                    setSuccess(true);
+                    setRemoved(true);
                 }
             })
         }
@@ -37,7 +50,8 @@ function AllOrders() {
     return (
         <div>
             <h2>Manage All Orders</h2>
-            {success && <Alert sx={{marginTop: "20px"}} severity="success">One order has been canceled.</Alert>}
+            {updated && <Alert sx={{marginTop: "20px"}} severity="success">Order has been updated successfully.</Alert>}
+            {removed && <Alert sx={{marginTop: "20px"}} severity="success">One order has been canceled.</Alert>}
             <TableContainer component={Paper} sx={{}}>
                 <Table aria-label="Manage Orders">
                     <TableHead>
@@ -66,7 +80,7 @@ function AllOrders() {
                         <TableCell align="center">{row.address}</TableCell>
                         <TableCell align="center">{row.status}</TableCell>
                         <TableCell align="center">
-                            <button className=".button">Ship</button>
+                            <button onClick={()=>{handleShipping(row._id)}} className=".button">Ship</button>
                             <button onClick={()=>{handleRemove(row._id)}} className=".button">Cancel</button>
                         </TableCell>
                         </TableRow>
