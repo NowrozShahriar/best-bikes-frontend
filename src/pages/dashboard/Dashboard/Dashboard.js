@@ -26,11 +26,12 @@ import AddReview from '../userPages/AddReview/AddReview';
 import AllOrders from '../adminPages/AllOrders/AllOrders';
 import AddProduct from '../adminPages/AddProduct/AddProduct';
 import ManageProducts from '../adminPages/ManageProducts/ManageProducts';
+import AdminRoute from '../../login/AdminRoute/AdminRoute';
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
-  const { user, logOut } = useAuth();
+  const { user, admin, logOut } = useAuth();
   let { path, url } = useRouteMatch();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -45,53 +46,50 @@ function Dashboard(props) {
         <ListItem>
           <h3 style={{margin: "1px"}}>{user.email}</h3>
         </ListItem>
-        
       </List>
       <Divider />
       <List>
+        {!admin ? <><Link to={`${url}/my-orders`} style={{color: "black"}} >
           <ListItem button>
-            <Link to={`${url}`} style={{color: "black"}} >
-              <ListItemText primary="My Orders" />
-            </Link>
+            <ListItemText primary="My Orders" />
           </ListItem>
+        </Link>
+        <Link to={`${url}/payment`} style={{color: "black"}} >
           <ListItem button>
-            <Link to={`${url}/payment`} style={{color: "black"}} >
               <ListItemText primary="Pay" />
-            </Link>
           </ListItem>
+        </Link>
+        <Link to={`${url}/add-review`} style={{color: "black"}} >
           <ListItem button>
-            <Link to={`${url}/add-review`} style={{color: "black"}} >
               <ListItemText primary="Review" />
-            </Link>
           </ListItem>
-
+        </Link></> :
+        <><Link to={`${url}/all-orders`} style={{color: "black"}} >
           <ListItem button>
-            <Link to={`${url}/all-orders`} style={{color: "black"}} >
-              <ListItemText primary="Manage Orders" />
-            </Link>
+            <ListItemText primary="Manage Orders" />
           </ListItem>
+        </Link>
+        <Link to={`${url}/manage-products`} style={{color: "black"}} >
           <ListItem button>
-            <Link to={`${url}/manage-products`} style={{color: "black"}} >
-              <ListItemText primary="Manage Products" />
-            </Link>
+            <ListItemText primary="Manage Products" />
           </ListItem>
+        </Link>
+        <Link to={`${url}/add-product`} style={{color: "black"}} >
           <ListItem button>
-            <Link to={`${url}/add-product`} style={{color: "black"}} >
-              <ListItemText primary="Add Product" />
-            </Link>
+            <ListItemText primary="Add Product" />
           </ListItem>
+        </Link>
+        <Link to={`${url}/make-admin`} style={{color: "black"}} >
           <ListItem button>
-            <Link to={`${url}/make-admin`} style={{color: "black"}} >
-              <ListItemText primary="Make Admin" />
-            </Link>
+            <ListItemText primary="Make Admin" />
           </ListItem>
-        
+        </Link></>}
       </List>
       <Divider />
       <List>
-          <ListItem button>
-            <ListItemText onClick={logOut} color="inherit">LogOut</ListItemText>
-          </ListItem>
+        <ListItem button>
+          <ListItemText onClick={logOut} color="inherit">LogOut</ListItemText>
+        </ListItem>
       </List>
     </div>
   );
@@ -165,6 +163,9 @@ function Dashboard(props) {
           <Box  sx={{}}>
             <Switch>
               <Route exact path={path}>
+                {!admin ? <MyOrders></MyOrders> : <AllOrders></AllOrders>}
+              </Route>
+              <Route path={`${path}/my-orders`}>
                 <MyOrders></MyOrders>
               </Route>
               <Route path={`${path}/payment`}>
@@ -174,18 +175,18 @@ function Dashboard(props) {
                 <AddReview></AddReview>
               </Route>
 
-              <Route path={`${path}/all-orders`}>
+              <AdminRoute path={`${path}/all-orders`}>
                 <AllOrders></AllOrders>
-              </Route>
-              <Route path={`${path}/manage-products`}>
+              </AdminRoute>
+              <AdminRoute path={`${path}/manage-products`}>
                 <ManageProducts></ManageProducts>
-              </Route>
-              <Route path={`${path}/add-product`}>
+              </AdminRoute>
+              <AdminRoute path={`${path}/add-product`}>
                 <AddProduct></AddProduct>
-              </Route>
-              <Route path={`${path}/make-admin`}>
+              </AdminRoute>
+              <AdminRoute path={`${path}/make-admin`}>
                 <MakeAdmin></MakeAdmin>
-              </Route>
+              </AdminRoute>
             </Switch>
           </Box>
       </Box>

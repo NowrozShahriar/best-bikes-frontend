@@ -22,7 +22,6 @@ function PlaceOrder() {
                 phone: data.phone,
                 status: 'pending'
             }
-            console.log(orderInfo);
             fetch('http://localhost:5000/orders', {
                 method: 'POST',
                 headers: {
