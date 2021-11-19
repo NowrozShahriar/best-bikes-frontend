@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { Container, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { Container, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import Product from "../../shared/Product/Product";
 
 function Products() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://evening-lake-73407.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);

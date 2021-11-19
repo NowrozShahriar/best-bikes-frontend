@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import useAuth from "../../../../hooks/useAuth";
+import { Alert } from "@mui/material";
+import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import axios from "axios";
-import { Alert } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import useAuth from "../../../../hooks/useAuth";
 
 function MyOrders() {
     const { user } = useAuth();
@@ -16,7 +16,7 @@ function MyOrders() {
     const [success, setSuccess] = useState(false);
     
     useEffect(() => {
-        const url = `http://localhost:5000/orders?email=${user.email}`;
+        const url = `https://evening-lake-73407.herokuapp.com/orders?email=${user.email}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setOrders(data))
@@ -25,7 +25,7 @@ function MyOrders() {
     const handleRemove = (_id) => {
         const condition = window.confirm('Cancel an order?');
         if (condition) {
-            axios.delete('http://localhost:5000/orders', {data: {id: _id}})
+            axios.delete('https://evening-lake-73407.herokuapp.com/orders', {data: {id: _id}})
             .then((res)=> {
                 if(res.data.deletedCount) {
                     setSuccess(true);

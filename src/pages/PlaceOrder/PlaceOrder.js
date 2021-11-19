@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
-import "./PlaceOrder.css"
+import "./PlaceOrder.css";
 
 function PlaceOrder() {
     const {id} = useParams();
@@ -22,7 +22,7 @@ function PlaceOrder() {
                 phone: data.phone,
                 status: 'pending'
             }
-            fetch('http://localhost:5000/orders', {
+            fetch('https://evening-lake-73407.herokuapp.com/orders', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

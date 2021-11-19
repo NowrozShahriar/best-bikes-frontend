@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import useAuth from "../../../../hooks/useAuth";
+import { Alert } from "@mui/material";
+import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import axios from "axios";
-import { Alert } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import useAuth from "../../../../hooks/useAuth";
 
 function AllOrders() {
     const { user } = useAuth();
@@ -17,7 +17,7 @@ function AllOrders() {
     const [removed, setRemoved] = useState(false);
     
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://evening-lake-73407.herokuapp.com/orders')
         .then(res => res.json())
         .then(data => setOrders(data))
     }, [user.email])
@@ -25,7 +25,7 @@ function AllOrders() {
     const handleShipping = (_id) => {
         const condition = window.confirm('Update product status to "Shipped"?');
         if (condition) {
-            axios.put('http://localhost:5000/orders', {_id})
+            axios.put('https://evening-lake-73407.herokuapp.com/orders', {_id})
             .then(res => {
                 if(res.data.modifiedCount) {
                     setUpdated(true);
@@ -37,7 +37,7 @@ function AllOrders() {
     const handleRemove = (_id) => {
         const condition = window.confirm('Cancel an order?');
         if (condition) {
-            axios.delete('http://localhost:5000/orders', {data: {id: _id}})
+            axios.delete('https://evening-lake-73407.herokuapp.com/orders', {data: {id: _id}})
             .then(res => {
                 if(res.data.deletedCount) {
                     setRemoved(true);

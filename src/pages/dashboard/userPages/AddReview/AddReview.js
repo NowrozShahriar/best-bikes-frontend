@@ -10,7 +10,7 @@ function AddReview() {
     const [success, setSuccess] = useState(false);
 
     const onSubmit = data => {
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://evening-lake-73407.herokuapp.com/reviews', data)
         .then(res => {
             if (res.data.insertedId) {
                 setSuccess(true);

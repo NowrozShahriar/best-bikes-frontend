@@ -11,7 +11,7 @@ function MakeAdmin() {
     function handleAdminSubmit(e) {
         e.preventDefault();
         const user = {email};
-        fetch('http://localhost:5000/users', {
+        fetch('https://evening-lake-73407.herokuapp.com/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

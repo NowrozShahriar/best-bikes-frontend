@@ -8,7 +8,7 @@ function AddProduct() {
     const [success, setSuccess] = useState(false);
 
     const onSubmit = data => {
-        axios.post('http://localhost:5000/products', data)
+        axios.post('https://evening-lake-73407.herokuapp.com/products', data)
         .then(res => {
             if (res.data.insertedId) {
                 setSuccess(true);

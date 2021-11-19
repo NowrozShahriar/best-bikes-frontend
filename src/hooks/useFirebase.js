@@ -1,6 +1,6 @@
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebase from "../pages/login/firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 
 initializeFirebase();
 
@@ -58,7 +58,7 @@ function useFirebase() {
     }, [auth])
 
     useEffect(() => {
-         fetch(`http://localhost:5000/users/${user.email}`)
+         fetch(`https://evening-lake-73407.herokuapp.com/users/${user.email}`)
          .then(res => res.json())
          .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -75,7 +75,7 @@ function useFirebase() {
 
     const saveUser = (email) => {
         const user = {email};
-        fetch('http://localhost:5000/users', {
+        fetch('https://evening-lake-73407.herokuapp.com/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
