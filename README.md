@@ -12,6 +12,8 @@ Best Bikes is an online bike shop website. Visit site [Best Bikes](https://best-
 
 - In the dashboard admin users will see manage orders, manage products, add products, make admin and logout options.
 
-- In manage orders admins can see all users orders, update their status from pending to shipped or remove them. And From manage products and add products admins can remove products or add new products.
+- In manage orders admins can see all users orders, update their status from pending to shipped or remove them.
+
+- And From manage products and add products admins can remove products or add new products.
 
 - Lastly from make admin option admins can make other users an admin using their email address.
