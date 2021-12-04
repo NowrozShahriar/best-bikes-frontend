@@ -8,7 +8,9 @@ Best Bikes is an online bike shop website. Visit site [Best Bikes](https://best-
 
 - There is two types of user, normal and admin. After logging in all users will see a dashboard .
 
-- In the dashboard normal users will see my orders, pay, review and logout options. Here users can see all their orders and cancel them. And also give rating and reviews which will be displayed in the homepage.
+- In the dashboard normal users will see my orders, pay, review and logout options.
+
+- Here users can see all their orders and cancel them. And also give rating and reviews which will be displayed in the homepage.
 
 - In the dashboard admin users will see manage orders, manage products, add products, make admin and logout options.
 
